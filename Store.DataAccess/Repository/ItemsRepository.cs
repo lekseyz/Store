@@ -14,7 +14,7 @@ namespace Store.DataAccess.Repository
             this._context = context;
         }
 
-        public async Task<List<StoreItem>> Get()
+        public async Task<List<Item>> Get()
         {
             var items = await _context.Items
                 .AsNoTracking()
@@ -25,7 +25,7 @@ namespace Store.DataAccess.Repository
                 .ToList();
         }
 
-        public async Task<Guid> Create(StoreItem item)
+        public async Task<Guid> Create(Item item)
         {
             var entity = new StoreItemEntity
             {
@@ -63,9 +63,9 @@ namespace Store.DataAccess.Repository
             return id;
         }
 
-        private StoreItem _Transform(StoreItemEntity entity)
+        private Item _Transform(StoreItemEntity entity)
         {
-            return new StoreItem(entity.Id, entity.Name, entity.Discription, entity.Price);
+            return new Item(entity.Id, entity.Name, entity.Discription, entity.Price);
         }
     }
 }

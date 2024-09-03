@@ -12,23 +12,23 @@ namespace Store.Application.Services
             this._repository = repository;
         }
 
-        public async Task<List<StoreItem>> GetAllItems()
+        public async Task<List<Item>> GetAllItems()
         {
             return await _repository.Get();
         }
 
-        public async Task<StoreItem?> GetItem(Guid id)
+        public async Task<Item?> GetItem(Guid id)
         {
             var items = await _repository.Get();
             return items.Where(i => i.Id == id).FirstOrDefault();
         }
 
-        public async Task<Guid> CreateItem(StoreItem item)
+        public async Task<Guid> CreateItem(Item item)
         {
             return await _repository.Create(item);
         }
 
-        public async Task<Guid> UpdateItem(Guid id, StoreItem item)
+        public async Task<Guid> UpdateItem(Guid id, Item item)
         {
             return await _repository.Update(id, item.Name, item.Discription, item.Price);
         }

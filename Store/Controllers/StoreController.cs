@@ -37,7 +37,7 @@ namespace Store.Api.Controllers
         {
             try
             {
-                var item = new StoreItem(Guid.NewGuid(), request.Name, request.Discription, request.Price);
+                var item = new Item(Guid.NewGuid(), request.Name, request.Discription, request.Price);
                 Guid id = await _service.CreateItem(item);
                 return Ok(id);
             }
@@ -52,7 +52,7 @@ namespace Store.Api.Controllers
         {
             try
             {
-                var item = new StoreItem(Guid.NewGuid(), request.Name, request.Discription, request.Price);
+                var item = new Item(Guid.NewGuid(), request.Name, request.Discription, request.Price);
                 await _service.UpdateItem(id, item);
                 return Ok(id);
             }

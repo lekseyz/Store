@@ -13,11 +13,11 @@ namespace Store.DataAccess.Configurations
 
             builder.Property(i => i.Name)
                 .IsRequired()
-                .HasMaxLength(StoreItem.NAME_MAX_LENGHT);
+                .HasMaxLength(Item.NAME_MAX_LENGHT);
 
             builder.Property(i => i.Discription)
                 .IsRequired()
-                .HasMaxLength(StoreItem.DESCRIPTION_MAX_LENGHT);
+                .HasMaxLength(Item.DESCRIPTION_MAX_LENGHT);
 
             builder.Property(i => i.Price)
                 .IsRequired();
